@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Tailwind CSS Play CDN para estilização rápida e rica -->
+    <!-- Tailwind CSS Play CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -46,12 +46,46 @@
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
+        
+        /* Efeito de Reflexo Espelhado no Chão */
+        .reflection-container {
+            display: inline-block;
+            perspective: 1000px;
+        }
+        .reflection-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        .reflection-btn:hover {
+            transform: translateY(-3px);
+        }
+        .reflection-btn::after {
+            content: attr(data-text);
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(16, 185, 129, 0.15), transparent);
+            transform: scaleY(-1);
+            opacity: 0.4;
+            filter: blur(4px);
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            border-radius: 1rem;
+        }
     </style>
 </head>
 <body class="selection:bg-neonGreen selection:text-black">
 
     <!-- HEADER / NAVBAR -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-white/5">
+    <header class="fixed top-0 left-0 right-0 z-40 glass-card border-b border-white/5">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3">
                 <div class="w-10 h-10 rounded-xl bg-neonGreen/15 border border-neonGreen/30 flex items-center justify-center text-neonGreen text-lg font-bold">
@@ -79,21 +113,23 @@
         
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
             <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-neonBlue/10 border border-neonBlue/30 text-neonBlue text-xs font-bold tracking-wide uppercase">
-                    <i class="fa-solid fa-route"></i>
-                    <span>O melhor companheiro para a estrada</span>
+                <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-bold tracking-wide uppercase">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>Blindagem contra combustível adulterado</span>
                 </div>
                 <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight text-white">
-                    Encontre os postos mais baratos <span class="text-transparent bg-clip-text bg-gradient-to-r from-neonGreen to-neonBlue">em tempo real.</span>
+                    Saiba onde abastecer e <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-neonGreen">livre-se de ciladas no motor.</span>
                 </h1>
                 <p class="text-slate-400 text-base md:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                    Navegue pelo mapa inteligente, acompanhe os preços atualizados de combustíveis ao seu redor, interaja com outros motoristas na comunidade e acione o sistema de SOS em caso de emergência.
+                    Teve problemas com combustível adulterado que estragou seu veículo? No Posto Notável, os motoristas avaliam e alertam uns aos outros em tempo real. Encontre os postos mais confiáveis, acompanhe preços e acione o SOS na estrada.
                 </p>
                 <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
-                    <a href="#download" class="w-full sm:w-auto bg-neonGreen hover:bg-neonGreen/90 text-black font-bold px-8 py-4 rounded-2xl text-base transition shadow-xl shadow-neonGreen/25 flex items-center justify-center space-x-3">
-                        <i class="fa-brands fa-android text-xl"></i>
-                        <span>Baixar para Android</span>
-                    </a>
+                    <div class="reflection-container w-full sm:w-auto">
+                        <a href="#download" data-text="Baixar para Android" class="reflection-btn w-full sm:w-auto bg-neonGreen hover:bg-neonGreen/90 text-black font-extrabold px-8 py-4 rounded-2xl text-base transition shadow-xl shadow-neonGreen/25 flex items-center justify-center space-x-3">
+                            <i class="fa-brands fa-android text-xl"></i>
+                            <span>Baixar para Android</span>
+                        </a>
+                    </div>
                     <a href="#recursos" class="w-full sm:w-auto glass-card hover:bg-cardLight text-white font-semibold px-8 py-4 rounded-2xl text-base transition flex items-center justify-center space-x-2">
                         <span>Conhecer Recursos</span>
                         <i class="fa-solid fa-arrow-down text-xs"></i>
@@ -101,8 +137,8 @@
                 </div>
                 <div class="pt-6 flex items-center justify-center lg:justify-start space-x-6 text-slate-400 text-xs font-semibold">
                     <div class="flex items-center space-x-2">
-                        <i class="fa-solid fa-shield-check text-neonGreen text-sm"></i>
-                        <span>100% Seguro & Verificado</span>
+                        <i class="fa-solid fa-triangle-exclamation text-red-400 text-sm"></i>
+                        <span>Alertas de Problemas Mecânicos</span>
                     </div>
                     <div class="flex items-center space-x-2">
                         <i class="fa-solid fa-bolt text-neonBlue text-sm"></i>
@@ -114,44 +150,40 @@
             <!-- MOCKUP VISUAL DO APP -->
             <div class="lg:col-span-5 flex justify-center">
                 <div class="relative w-[300px] h-[600px] bg-slate-950 rounded-[40px] border-4 border-slate-800 shadow-2xl p-4 glow-effect flex flex-col justify-between overflow-hidden">
-                    <!-- Notch / Barra Superior -->
                     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-5 bg-slate-800 rounded-b-2xl"></div>
                     
-                    <!-- Tela Simulada do App -->
                     <div class="pt-6 flex flex-col h-full space-y-4">
                         <div class="glass-card p-3 rounded-2xl flex items-center space-x-3">
-                            <div class="w-8 h-8 rounded-lg bg-neonGreen/20 flex items-center justify-center text-neonGreen text-sm">
-                                <i class="fa-solid fa-gas-pump"></i>
+                            <div class="w-8 h-8 rounded-lg bg-red-500/20 flex items-center justify-center text-red-400 text-sm">
+                                <i class="fa-solid fa-triangle-exclamation"></i>
                             </div>
                             <div>
                                 <h3 class="text-xs font-bold text-white">Posto Notável</h3>
-                                <p class="text-[10px] text-neonGreen font-semibold">14 postos encontrados no raio</p>
+                                <p class="text-[10px] text-red-400 font-semibold">Alerta de qualidade ativo</p>
                             </div>
                         </div>
 
                         <!-- Mini Mapa Simulado -->
                         <div class="flex-1 bg-slate-900 rounded-2xl relative border border-white/5 overflow-hidden flex items-center justify-center">
                             <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#38BDF8_1px,transparent_1px)] [background-size:16px_16px]"></div>
-                            <!-- Pinos Fictícios -->
-                            <div class="absolute top-16 left-12 bg-cardBg border border-neonGreen px-2.5 py-1 rounded-xl shadow-lg flex items-center space-x-1">
-                                <span class="text-[10px] font-bold text-white">0.8 km</span>
+                            <div class="absolute top-16 left-6 bg-cardBg border border-red-500 px-2.5 py-1 rounded-xl shadow-lg flex items-center space-x-1">
+                                <span class="text-[10px] font-bold text-red-400">❌ Não Recomendado</span>
                             </div>
-                            <div class="absolute bottom-20 right-10 bg-cardBg border border-amber-400 px-2.5 py-1 rounded-xl shadow-lg flex items-center space-x-1">
+                            <div class="absolute bottom-20 right-8 bg-cardBg border border-amber-400 px-2.5 py-1 rounded-xl shadow-lg flex items-center space-x-1">
                                 <span class="text-[10px] font-bold text-amber-400">💰 Mais Barato</span>
                             </div>
-                            <!-- Marcador Central de Usuário -->
                             <div class="w-8 h-8 rounded-full bg-neonGreen/30 flex items-center justify-center animate-pulse">
                                 <div class="w-3 h-3 rounded-full bg-neonGreen border-2 border-white"></div>
                             </div>
                         </div>
 
-                        <!-- Card Inferior Simulado -->
-                        <div class="glass-card p-3 rounded-2xl space-y-2">
+                        <!-- Card Inferior com Relato Real -->
+                        <div class="glass-card p-3 rounded-2xl space-y-1.5 border-red-500/30">
                             <div class="flex justify-between items-center">
-                                <span class="text-xs font-bold text-white">Auto Posto Rodovia</span>
-                                <span class="text-[10px] px-2 py-0.5 rounded bg-neonGreen/20 text-neonGreen font-bold">Recomendado</span>
+                                <span class="text-xs font-bold text-white">Posto da Rodovia</span>
+                                <span class="text-[10px] text-red-400 font-bold">⭐️ 1.0</span>
                             </div>
-                            <p class="text-[10px] text-slate-400">Gasolina: R$ 5,79 • Etanol: R$ 3,89</p>
+                            <p class="text-[10px] text-slate-300">"Abasteci e o carro falhou inteiro no transporte. Combustível adulterado!"</p>
                         </div>
                     </div>
                 </div>
@@ -163,8 +195,8 @@
     <section id="recursos" class="py-24 bg-cardBg/40 border-y border-white/5">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-2xl mx-auto space-y-4 mb-16">
-                <h2 class="text-3xl md:text-4xl font-extrabold text-white">Feito por motoristas, <span class="text-neonGreen">para motoristas.</span></h2>
-                <p class="text-slate-400 text-sm md:text-base">Tudo o que você precisa para economizar tempo, dinheiro e rodar com total segurança nas rodovias e cidades.</p>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white">Proteção real contra <span class="text-red-400">combustível adulterado.</span></h2>
+                <p class="text-slate-400 text-sm md:text-base">Saiba exatamente quais estabelecimentos já deram prejuízo no motor de outros motoristas.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -173,26 +205,26 @@
                     <div class="w-14 h-14 rounded-2xl bg-neonGreen/10 border border-neonGreen/20 flex items-center justify-center text-neonGreen text-2xl group-hover:scale-110 transition">
                         <i class="fa-solid fa-map-location-dot"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white">Radar em Tempo Real</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">O mapa acompanha seus passos via GPS. Os postos entram e saem do raio automaticamente conforme você dirige.</p>
+                    <h3 class="text-xl font-bold text-white">Radar Dinâmico em Tempo Real</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Conforme você se movimenta na estrada ou na cidade, os postos ao redor entram e saem do raio automaticamente com as distâncias recalculadas.</p>
                 </div>
 
-                <!-- Recurso 2 -->
-                <div class="glass-card p-8 rounded-3xl space-y-4 hover:border-neonBlue/40 transition group">
-                    <div class="w-14 h-14 rounded-2xl bg-neonBlue/10 border border-neonBlue/20 flex items-center justify-center text-neonBlue text-2xl group-hover:scale-110 transition">
+                <!-- Recurso 2 (Foco em problemas de combustível e transporte) -->
+                <div class="glass-card p-8 rounded-3xl space-y-4 hover:border-red-500/40 transition group">
+                    <div class="w-14 h-14 rounded-2xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400 text-2xl group-hover:scale-110 transition">
                         <i class="fa-solid fa-triangle-exclamation"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white">Botão de Emergência SOS</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">Ficou na mão na estrada? Ative o SOS instantaneamente para alertar todos os outros motoristas conectados na região.</p>
+                    <h3 class="text-xl font-bold text-white">Avaliações de Problemas no Motor</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Alguém colocou combustível ruim e teve o transporte danificado? A comunidade avalia mal na hora e o posto ganha o status de "Não Recomendado" para salvar os colegas.</p>
                 </div>
 
                 <!-- Recurso 3 -->
-                <div class="glass-card p-8 rounded-3xl space-y-4 hover:border-pink-500/40 transition group">
-                    <div class="w-14 h-14 rounded-2xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center text-pink-400 text-2xl group-hover:scale-110 transition">
-                        <i class="fa-solid fa-gas-pump"></i>
+                <div class="glass-card p-8 rounded-3xl space-y-4 hover:border-neonBlue/40 transition group">
+                    <div class="w-14 h-14 rounded-2xl bg-neonBlue/10 border border-neonBlue/20 flex items-center justify-center text-neonBlue text-2xl group-hover:scale-110 transition">
+                        <i class="fa-solid fa-shield-halved"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white">Preços e Avaliações</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">Compare valores de Gasolina, Etanol, Diesel e GNV e veja avaliações reais de postos antes de abastecer.</p>
+                    <h3 class="text-xl font-bold text-white">SOS & Comunidade Ativa</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Botão de emergência na estrada para alertar motoristas próximos e feed de conversas colaborativas para solicitar atualizações de preços e postos.</p>
                 </div>
             </div>
         </div>
@@ -204,46 +236,46 @@
             <div class="space-y-6">
                 <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-neonGreen/10 border border-neonGreen/30 text-neonGreen text-xs font-bold uppercase">
                     <i class="fa-solid fa-users"></i>
-                    <span>Rede Social da Estrada</span>
+                    <span>Força Coletiva da Estrada</span>
                 </div>
-                <h2 class="text-3xl md:text-4xl font-extrabold text-white">Compartilhe dicas com colegas da estrada na <span class="text-neonBlue">Comunidade.</span></h2>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white">Avisou um motorista, <span class="text-neonBlue">salvou todos na pista.</span></h2>
                 <p class="text-slate-400 text-base leading-relaxed">
-                    Publique avisos, alertas de trânsito, condições de rodovias ou dicas de postos com cards personalizados em degradê, fotos e estilos de fontes exclusivos.
+                    Quantas vezes você já abasteceu e o carro começou a falhar por causa de combustível batizado? No Posto Notável, as atualizações, correções de nomes e relatos de problemas mecânicos são feitos inteiramente pela comunidade de usuários que vivem a realidade da estrada.
                 </p>
                 <div class="space-y-3 pt-2">
                     <div class="flex items-center space-x-3 text-slate-300 text-sm">
                         <i class="fa-solid fa-circle-check text-neonGreen"></i>
-                        <span>Moderação ativa para manter a segurança e respeito.</span>
+                        <span>Relatos reais de desempenho e qualidade do combustível.</span>
                     </div>
                     <div class="flex items-center space-x-3 text-slate-300 text-sm">
                         <i class="fa-solid fa-circle-check text-neonGreen"></i>
-                        <span>Sistema de curtidas e engajamento entre motoristas.</span>
+                        <span>Atualizações de postos sugeridas diretamente por quem passa por lá.</span>
                     </div>
                     <div class="flex items-center space-x-3 text-slate-300 text-sm">
                         <i class="fa-solid fa-circle-check text-neonGreen"></i>
-                        <span>Filtro automático contra conteúdo impróprio.</span>
+                        <span>Moderação rigorosa para manter a confiabilidade dos dados.</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Card Ilustrativo da Comunidade -->
+            <!-- Card Ilustrativo da Comunidade / Alerta -->
             <div class="glass-card p-6 rounded-3xl glow-blue space-y-4">
                 <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-neonBlue font-bold">@carlos_br</div>
+                    <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center text-red-400 font-bold">@marcio_truck</div>
                     <div>
-                        <h4 class="text-sm font-bold text-white">Carlos Silva</h4>
-                        <p class="text-[11px] text-slate-400">Veículo: Caminhão • Há 15 min</p>
+                        <h4 class="text-sm font-bold text-white">Márcio Souza</h4>
+                        <p class="text-[11px] text-slate-400">Veículo: Caminhão • Há 20 min</p>
                     </div>
                 </div>
-                <p class="text-xs text-slate-300 leading-relaxed bg-slate-900/60 p-4 rounded-2xl border border-white/5">
-                    "Galera, o posto na saída do KM 45 tá com o Diesel a um preço excelente e com borracharia 24h funcionando. Recomendo demais!"
+                <p class="text-xs text-slate-300 leading-relaxed bg-slate-900/60 p-4 rounded-2xl border border-red-500/20">
+                    "Atenção galera! Abasteci o diesel naquele posto da descida da serra e o caminhão cortou força na mesma hora. Combustível adulterado, deixei avaliação negativa lá!"
                 </p>
                 <div class="flex items-center justify-between text-xs text-slate-400 pt-2">
-                    <div class="flex items-center space-x-1 text-pink-500 font-bold">
-                        <i class="fa-solid fa-heart"></i>
-                        <span>24 curtidas</span>
+                    <div class="flex items-center space-x-1 text-red-400 font-bold">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <span>Alerta de Qualidade</span>
                     </div>
-                    <span class="text-neonGreen text-[10px] font-bold px-2 py-0.5 rounded bg-neonGreen/10">Aprovado</span>
+                    <span class="text-red-400 text-[10px] font-bold px-2 py-0.5 rounded bg-red-500/10">Posto Não Recomendado</span>
                 </div>
             </div>
         </div>
@@ -251,21 +283,23 @@
 
     <!-- ÁREA DE DOWNLOAD -->
     <section id="download" class="py-24 bg-gradient-to-b from-transparent to-cardBg border-t border-white/5">
-        <div class="max-w-4xl mx-auto px-6 text-center space-y-8">
+        <div class="max-w-4xl mx-auto px-6 text-center space-y-12">
             <div class="w-16 h-16 rounded-3xl bg-neonGreen/15 border border-neonGreen/30 mx-auto flex items-center justify-center text-neonGreen text-3xl">
                 <i class="fa-solid fa-cloud-arrow-down"></i>
             </div>
             <h2 class="text-3xl md:text-5xl font-extrabold text-white">Baixe agora o Posto Notável</h2>
             <p class="text-slate-400 text-base max-w-xl mx-auto leading-relaxed">
-                Disponível para dispositivos Android. Instale o arquivo APK oficial e comece a aproveitar todas as vantagens na sua rota.
+                Proteja seu veículo e sua viagem. Instale o APK oficial e participe da maior rede de alerta de postos do Brasil.
             </p>
-            <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#" id="download-btn" class="w-full sm:w-auto bg-neonGreen hover:bg-neonGreen/90 text-black font-extrabold px-10 py-4 rounded-2xl text-base transition shadow-xl shadow-neonGreen/30 flex items-center justify-center space-x-3">
-                    <i class="fa-brands fa-android text-2xl"></i>
-                    <span>Baixar APK (Versão Mais Recente)</span>
-                </a>
+            <div class="pt-2 pb-6 flex justify-center">
+                <div class="reflection-container">
+                    <a href="#" data-text="Baixar APK (Versão Mais Recente)" class="reflection-btn bg-neonGreen hover:bg-neonGreen/90 text-black font-extrabold px-10 py-4 rounded-2xl text-base transition shadow-xl shadow-neonGreen/30 flex items-center space-x-3">
+                        <i class="fa-brands fa-android text-2xl"></i>
+                        <span>Baixar APK (Versão Mais Recente)</span>
+                    </a>
+                </div>
             </div>
-            <p class="text-xs text-slate-500 pt-2">Compatível com Android 8.0 ou superior.</p>
+            <p class="text-xs text-slate-500">Compatível com Android 8.0 ou superior.</p>
         </div>
     </section>
 
@@ -277,11 +311,92 @@
                 <span>• Todos os direitos reservados.</span>
             </div>
             <div class="flex space-x-6">
-                <a href="#" class="hover:text-slate-300 transition">Termos de Uso</a>
-                <a href="#" class="hover:text-slate-300 transition">Política de Privacidade</a>
+                <button onclick="openModal('termsModal')" class="hover:text-slate-300 transition text-xs font-medium cursor-pointer">Termos de Uso</button>
+                <button onclick="openModal('privacyModal')" class="hover:text-slate-300 transition text-xs font-medium cursor-pointer">Política de Privacidade</button>
             </div>
         </div>
     </footer>
+
+    <!-- MODAL DE TERMOS DE USO -->
+    <div id="termsModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 p-4">
+        <div class="glass-card bg-slate-900 border border-white/10 w-full max-w-2xl max-h-[85vh] rounded-3xl p-6 md:p-8 overflow-y-auto transform scale-95 transition-transform duration-300 shadow-2xl">
+            <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
+                <div class="flex items-center space-x-3">
+                    <div class="w-9 h-9 rounded-xl bg-neonGreen/20 flex items-center justify-center text-neonGreen font-bold">
+                        <i class="fa-solid fa-file-contract"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Termos de Uso</h3>
+                </div>
+                <button onclick="closeModal('termsModal')" class="w-8 h-8 rounded-full bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="space-y-4 text-xs md:text-sm text-slate-300 leading-relaxed">
+                <p>Bem-vindo ao <strong>Posto Notável</strong>. Ao acessar ou utilizar nosso aplicativo, você concorda com estes Termos de Uso.</p>
+                <h4 class="text-white font-bold pt-2">1. Natureza Colaborativa e Alertas de Qualidade</h4>
+                <p>O Posto Notável é uma plataforma colaborativa onde motoristas compartilham informações sobre postos, preços e relatam experiências relativas à qualidade do combustível e problemas mecânicos no transporte. As avaliações devem refletir fatos verídicos e honestos.</p>
+                <h4 class="text-white font-bold pt-2">2. Conduta na Comunidade e SOS</h4>
+                <p>O envio de mensagens na comunidade e o uso do SOS exigem responsabilidade. É proibido o uso de avaliações falsas para difamação comercial ou divulgação de spam. Infrações resultam em banimento.</p>
+                <h4 class="text-white font-bold pt-2">3. Isenção de Responsabilidade</h4>
+                <p>O aplicativo fornece dados geográficos e informativos gerados pelos usuários. Recomenda-se cautela ao transitar em rodovias.</p>
+            </div>
+            <div class="pt-6 mt-6 border-t border-white/10 text-right">
+                <button onclick="closeModal('termsModal')" class="bg-neonGreen text-black font-bold px-6 py-2.5 rounded-xl text-xs hover:bg-neonGreen/90 transition">Entendi e Concordo</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE POLÍTICA DE PRIVACIDADE -->
+    <div id="privacyModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 p-4">
+        <div class="glass-card bg-slate-900 border border-white/10 w-full max-w-2xl max-h-[85vh] rounded-3xl p-6 md:p-8 overflow-y-auto transform scale-95 transition-transform duration-300 shadow-2xl">
+            <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
+                <div class="flex items-center space-x-3">
+                    <div class="w-9 h-9 rounded-xl bg-neonBlue/20 flex items-center justify-center text-neonBlue font-bold">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Política de Privacidade</h3>
+                </div>
+                <button onclick="closeModal('privacyModal')" class="w-8 h-8 rounded-full bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="space-y-4 text-xs md:text-sm text-slate-300 leading-relaxed">
+                <p>A sua privacidade é prioridade no <strong>Posto Notável</strong>. Esta política detalha o tratamento dos seus dados.</p>
+                <h4 class="text-white font-bold pt-2">1. Coleta de Dados de Localização (GPS)</h4>
+                <p>Coletamos dados de geolocalização para exibir postos próximos em tempo real e habilitar o recurso de emergência SOS com motoristas próximos.</p>
+                <h4 class="text-white font-bold pt-2">2. Dados de Cadastro</h4>
+                <p>Armazenamos nome, e-mail, nome de usuário público (@), tipo de veículo e avatar através do Firebase de forma segura.</p>
+                <h4 class="text-white font-bold pt-2">3. Segurança</h4>
+                <p>Utilizamos criptografia e padrões rígidos de proteção para blindar suas informações.</p>
+            </div>
+            <div class="pt-6 mt-6 border-t border-white/10 text-right">
+                <button onclick="closeModal('privacyModal')" class="bg-neonBlue text-black font-bold px-6 py-2.5 rounded-xl text-xs hover:bg-neonBlue/90 transition">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT DE MODAIS -->
+    <script>
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.querySelector('div > div').classList.remove('scale-95');
+            modal.querySelector('div > div').classList.add('scale-100');
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modal.querySelector('div > div').classList.remove('scale-100');
+            modal.querySelector('div > div').classList.add('scale-95');
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('fixed') && event.target.id) {
+                closeModal(event.target.id);
+            }
+        }
+    </script>
 
 </body>
 </html>
