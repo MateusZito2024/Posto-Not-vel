@@ -86,20 +86,40 @@
 
     <!-- HEADER / NAVBAR -->
     <header class="fixed top-0 left-0 right-0 z-40 glass-card border-b border-white/5">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-xl bg-neonGreen/15 border border-neonGreen/30 flex items-center justify-center overflow-hidden p-1">
-    <img src="https://i.imgur.com/Yfnvjgl.png" alt="Logo Posto Notável" class="w-full h-full object-contain">
-</div>
-                <span class="text-lg font-extrabold tracking-tight text-white">Posto Notável</span>
+                <div class="w-10 h-10 rounded-xl bg-neonGreen/15 border border-neonGreen/30 flex items-center justify-center overflow-hidden p-1 flex-shrink-0">
+                    <img src="https://i.imgur.com/Yfnvjgl.png" alt="Logo Posto Notável" class="w-full h-full object-contain">
+                </div>
+                <span class="text-base sm:text-lg font-extrabold tracking-tight text-white truncate">Posto Notável</span>
             </div>
+            
             <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
                 <a href="#recursos" class="hover:text-neonGreen transition">Recursos</a>
                 <a href="#comunidade" class="hover:text-neonGreen transition">Comunidade</a>
                 <a href="#download" class="hover:text-neonGreen transition">Baixar App</a>
             </nav>
-            <div>
-                <a href="https://github.com/MateusZito2024/Posto-Not-vel/releases/download/v1.0.0/Posto.Notavel.v1.0.0.apk" class="bg-neonGreen hover:bg-neonGreen/90 text-black font-bold px-5 py-2.5 rounded-xl text-sm transition shadow-lg shadow-neonGreen/20 flex items-center space-x-2">
+
+            <div class="hidden sm:block">
+                <a href="https://github.com/MateusZito2024/Posto-Not-vel/releases/download/v1.0.0/Posto.Notavel.v1.0.0.apk" class="bg-neonGreen hover:bg-neonGreen/90 text-black font-bold px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm transition shadow-lg shadow-neonGreen/20 flex items-center space-x-2">
+                    <i class="fa-solid fa-download"></i>
+                    <span>Download APK</span>
+                </a>
+            </div>
+
+            <!-- Botão Menu Mobile -->
+            <button onclick="toggleMobileMenu()" class="md:hidden text-slate-300 hover:text-white p-2 focus:outline-none">
+                <i id="menuIcon" class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Menu Mobile Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden glass-card border-t border-white/10 px-6 py-4 space-y-4 bg-slate-950/95">
+            <a href="#recursos" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-neonGreen text-sm font-medium">Recursos</a>
+            <a href="#comunidade" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-neonGreen text-sm font-medium">Comunidade</a>
+            <a href="#download" onclick="toggleMobileMenu()" class="block text-slate-300 hover:text-neonGreen text-sm font-medium">Baixar App</a>
+            <div class="pt-2">
+                <a href="https://github.com/MateusZito2024/Posto-Not-vel/releases/download/v1.0.0/Posto.Notavel.v1.0.0.apk" class="w-full bg-neonGreen text-black font-bold py-3 rounded-xl text-sm text-center flex items-center justify-center space-x-2">
                     <i class="fa-solid fa-download"></i>
                     <span>Download APK</span>
                 </a>
@@ -108,34 +128,34 @@
     </header>
 
     <!-- HERO SECTION -->
-    <section class="pt-32 pb-20 md:pt-44 md:pb-32 relative">
-        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-neonGreen/10 rounded-full blur-[120px] pointer-events-none"></div>
+    <section class="pt-28 pb-16 sm:pt-32 md:pt-44 md:pb-32 relative">
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-neonGreen/10 rounded-full blur-[100px] pointer-events-none"></div>
         
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
             <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
                 <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-bold tracking-wide uppercase">
                     <i class="fa-solid fa-shield-halved"></i>
                     <span>Blindagem contra combustível adulterado</span>
                 </div>
-                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight text-white">
+                <h1 class="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight leading-tight text-white">
                     Saiba onde abastecer e <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-neonGreen">livre-se de ciladas no motor.</span>
                 </h1>
-                <p class="text-slate-400 text-base md:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                <p class="text-slate-400 text-sm sm:text-base md:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
                     Teve problemas com combustível adulterado que estragou seu veículo? No Posto Notável, os motoristas avaliam e alertam uns aos outros em tempo real. Encontre os postos mais confiáveis, acompanhe preços e acione o SOS na estrada.
                 </p>
-                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-3 sm:space-y-0 sm:space-x-4 pt-4">
                     <div class="reflection-container w-full sm:w-auto">
-                        <a href="https://github.com/MateusZito2024/Posto-Not-vel/releases/download/v1.0.0/Posto.Notavel.v1.0.0.apk" data-text="Baixar para Android" class="reflection-btn w-full sm:w-auto bg-neonGreen hover:bg-neonGreen/90 text-black font-extrabold px-8 py-4 rounded-2xl text-base transition shadow-xl shadow-neonGreen/25 flex items-center justify-center space-x-3">
+                        <a href="https://github.com/MateusZito2024/Posto-Not-vel/releases/download/v1.0.0/Posto.Notavel.v1.0.0.apk" data-text="Baixar para Android" class="reflection-btn w-full sm:w-auto bg-neonGreen hover:bg-neonGreen/90 text-black font-extrabold px-6 sm:px-8 py-4 rounded-2xl text-sm sm:text-base transition shadow-xl shadow-neonGreen/25 flex items-center justify-center space-x-3">
                             <i class="fa-brands fa-android text-xl"></i>
                             <span>Baixar para Android</span>
                         </a>
                     </div>
-                    <a href="#recursos" class="w-full sm:w-auto glass-card hover:bg-cardLight text-white font-semibold px-8 py-4 rounded-2xl text-base transition flex items-center justify-center space-x-2">
+                    <a href="#recursos" class="w-full sm:w-auto glass-card hover:bg-cardLight text-white font-semibold px-6 sm:px-8 py-4 rounded-2xl text-sm sm:text-base transition flex items-center justify-center space-x-2">
                         <span>Conhecer Recursos</span>
                         <i class="fa-solid fa-arrow-down text-xs"></i>
                     </a>
                 </div>
-                <div class="pt-6 flex items-center justify-center lg:justify-start space-x-6 text-slate-400 text-xs font-semibold">
+                <div class="pt-6 flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 text-slate-400 text-xs font-semibold">
                     <div class="flex items-center space-x-2">
                         <i class="fa-solid fa-triangle-exclamation text-red-400 text-sm"></i>
                         <span>Alerta de Postos Ruins</span>
@@ -148,28 +168,28 @@
             </div>
 
             <!-- MOCKUP VISUAL DO APP -->
-            <div class="lg:col-span-5 flex justify-center">
-                <div class="relative w-[300px] h-[600px] bg-slate-950 rounded-[40px] border-4 border-slate-800 shadow-2xl p-4 glow-effect flex flex-col justify-between overflow-hidden">
+            <div class="lg:col-span-5 flex justify-center mt-4 lg:mt-0">
+                <div class="relative w-[280px] sm:w-[300px] h-[560px] sm:h-[600px] bg-slate-950 rounded-[40px] border-4 border-slate-800 shadow-2xl p-4 glow-effect flex flex-col justify-between overflow-hidden">
                     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-5 bg-slate-800 rounded-b-2xl"></div>
                     
                     <div class="pt-6 flex flex-col h-full space-y-4">
                         <div class="glass-card p-3 rounded-2xl flex items-center space-x-3">
-    <div class="w-8 h-8 rounded-lg bg-neonGreen/20 flex items-center justify-center overflow-hidden p-1">
-        <img src="https://i.imgur.com/Yfnvjgl.png" alt="Logo Posto Notável" class="w-full h-full object-contain">
-    </div>
-    <div>
-        <h3 class="text-xs font-bold text-white">Posto Notável</h3>
-        <p class="text-[10px] text-neonGreen font-semibold">2 postos encontrados!</p>
-    </div>
+                            <div class="w-8 h-8 rounded-lg bg-neonGreen/20 flex items-center justify-center overflow-hidden p-1 flex-shrink-0">
+                                <img src="https://i.imgur.com/Yfnvjgl.png" alt="Logo Posto Notável" class="w-full h-full object-contain">
+                            </div>
+                            <div>
+                                <h3 class="text-xs font-bold text-white">Posto Notável</h3>
+                                <p class="text-[10px] text-neonGreen font-semibold">2 postos encontrados!</p>
+                            </div>
                         </div>
 
                         <!-- Mini Mapa Simulado -->
                         <div class="flex-1 bg-slate-900 rounded-2xl relative border border-white/5 overflow-hidden flex items-center justify-center">
                             <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#38BDF8_1px,transparent_1px)] [background-size:16px_16px]"></div>
-                            <div class="absolute top-16 left-6 bg-cardBg border border-red-500 px-2.5 py-1 rounded-xl shadow-lg flex items-center space-x-1">
+                            <div class="absolute top-16 left-4 bg-cardBg border border-red-500 px-2.5 py-1 rounded-xl shadow-lg flex items-center space-x-1">
                                 <span class="text-[10px] font-bold text-red-400">❌ Não Recomendado</span>
                             </div>
-                            <div class="absolute bottom-20 right-8 bg-cardBg border border-amber-400 px-2.5 py-1 rounded-xl shadow-lg flex items-center space-x-1">
+                            <div class="absolute bottom-20 right-4 bg-cardBg border border-amber-400 px-2.5 py-1 rounded-xl shadow-lg flex items-center space-x-1">
                                 <span class="text-[10px] font-bold text-amber-400">💰 Mais Barato</span>
                             </div>
                             <div class="w-8 h-8 rounded-full bg-neonGreen/30 flex items-center justify-center animate-pulse">
@@ -192,38 +212,38 @@
     </section>
 
     <!-- RECURSOS PRINCIPAIS -->
-    <section id="recursos" class="py-24 bg-cardBg/40 border-y border-white/5">
-        <div class="max-w-7xl mx-auto px-6">
+    <section id="recursos" class="py-20 sm:py-24 bg-cardBg/40 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="text-center max-w-2xl mx-auto space-y-4 mb-16">
-                <h2 class="text-3xl md:text-4xl font-extrabold text-white">Proteção real contra <span class="text-red-400">combustível adulterado.</span></h2>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white">Proteção real contra <span class="text-red-400">combustível adulterado.</span></h2>
                 <p class="text-slate-400 text-sm md:text-base">Saiba exatamente quais estabelecimentos já deram prejuízo no motor de outros motoristas.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Recurso 1 -->
-                <div class="glass-card p-8 rounded-3xl space-y-4 hover:border-neonGreen/40 transition group">
+                <div class="glass-card p-6 sm:p-8 rounded-3xl space-y-4 hover:border-neonGreen/40 transition group">
                     <div class="w-14 h-14 rounded-2xl bg-neonGreen/10 border border-neonGreen/20 flex items-center justify-center text-neonGreen text-2xl group-hover:scale-110 transition">
                         <i class="fa-solid fa-map-location-dot"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white">Radar Dinâmico em Tempo Real</h3>
+                    <h3 class="text-lg sm:text-xl font-bold text-white">Radar Dinâmico em Tempo Real</h3>
                     <p class="text-slate-400 text-sm leading-relaxed">Conforme você se movimenta na estrada ou na cidade, os postos ao redor entram e saem do raio automaticamente com as distâncias recalculadas.</p>
                 </div>
 
-                <!-- Recurso 2 (Foco em problemas de combustível e transporte) -->
-                <div class="glass-card p-8 rounded-3xl space-y-4 hover:border-red-500/40 transition group">
+                <!-- Recurso 2 -->
+                <div class="glass-card p-6 sm:p-8 rounded-3xl space-y-4 hover:border-red-500/40 transition group">
                     <div class="w-14 h-14 rounded-2xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400 text-2xl group-hover:scale-110 transition">
                         <i class="fa-solid fa-triangle-exclamation"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white">Avaliações de Problemas no Motor</h3>
+                    <h3 class="text-lg sm:text-xl font-bold text-white">Avaliações de Problemas no Motor</h3>
                     <p class="text-slate-400 text-sm leading-relaxed">Alguém colocou combustível ruim e teve o transporte danificado? A comunidade avalia mal na hora e o posto ganha o status de "Não Recomendado" para salvar os colegas.</p>
                 </div>
 
                 <!-- Recurso 3 -->
-                <div class="glass-card p-8 rounded-3xl space-y-4 hover:border-neonBlue/40 transition group">
+                <div class="glass-card p-6 sm:p-8 rounded-3xl space-y-4 hover:border-neonBlue/40 transition group">
                     <div class="w-14 h-14 rounded-2xl bg-neonBlue/10 border border-neonBlue/20 flex items-center justify-center text-neonBlue text-2xl group-hover:scale-110 transition">
                         <i class="fa-solid fa-shield-halved"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white">SOS & Comunidade Ativa</h3>
+                    <h3 class="text-lg sm:text-xl font-bold text-white">SOS & Comunidade Ativa</h3>
                     <p class="text-slate-400 text-sm leading-relaxed">Botão de emergência na estrada para alertar motoristas próximos que você precisa de ajuda e feed de conversas colaborativas para solicitar atualizações de preços e postos.</p>
                 </div>
             </div>
@@ -231,28 +251,28 @@
     </section>
 
     <!-- SEÇÃO DA COMUNIDADE -->
-    <section id="comunidade" class="py-24 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div class="space-y-6">
+    <section id="comunidade" class="py-20 sm:py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6 text-center lg:text-left">
                 <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-neonGreen/10 border border-neonGreen/30 text-neonGreen text-xs font-bold uppercase">
                     <i class="fa-solid fa-users"></i>
                     <span>Força Coletiva da Estrada</span>
                 </div>
-                <h2 class="text-3xl md:text-4xl font-extrabold text-white">Avisou um motorista, <span class="text-neonBlue">salvou todos na pista.</span></h2>
-                <p class="text-slate-400 text-base leading-relaxed">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white">Avisou um motorista, <span class="text-neonBlue">salvou todos na pista.</span></h2>
+                <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
                     Quantas vezes você já abasteceu e o carro começou a falhar por causa de combustível batizado? No Posto Notável, as atualizações, correções de nomes e relatos de problemas mecânicos são feitos inteiramente pela comunidade de usuários que vivem a realidade da estrada.
                 </p>
-                <div class="space-y-3 pt-2">
+                <div class="space-y-3 pt-2 text-left inline-block">
                     <div class="flex items-center space-x-3 text-slate-300 text-sm">
-                        <i class="fa-solid fa-circle-check text-neonGreen"></i>
+                        <i class="fa-solid fa-circle-check text-neonGreen flex-shrink-0"></i>
                         <span>Relatos reais de desempenho e qualidade do combustível.</span>
                     </div>
                     <div class="flex items-center space-x-3 text-slate-300 text-sm">
-                        <i class="fa-solid fa-circle-check text-neonGreen"></i>
+                        <i class="fa-solid fa-circle-check text-neonGreen flex-shrink-0"></i>
                         <span>Atualizações de postos sugeridas diretamente por quem passa por lá.</span>
                     </div>
                     <div class="flex items-center space-x-3 text-slate-300 text-sm">
-                        <i class="fa-solid fa-circle-check text-neonGreen"></i>
+                        <i class="fa-solid fa-circle-check text-neonGreen flex-shrink-0"></i>
                         <span>Moderação rigorosa para manter a confiabilidade dos dados.</span>
                     </div>
                 </div>
@@ -261,7 +281,7 @@
             <!-- Card Ilustrativo da Comunidade / Alerta -->
             <div class="glass-card p-6 rounded-3xl glow-blue space-y-4">
                 <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center text-red-400 font-bold">😃</div>
+                    <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center text-red-400 font-bold flex-shrink-0">😃</div>
                     <div>
                         <h4 class="text-sm font-bold text-white">Márcio Souza</h4>
                         <p class="text-[11px] text-slate-400">Veículo: Caminhão • Há 20 min</p>
@@ -271,7 +291,6 @@
                     "Atenção galera! Abasteci o diesel naquele posto da descida da serra e o caminhão cortou força na mesma hora. Combustível adulterado, deixei avaliação negativa lá!"
                 </p>
                 <div class="flex items-center justify-between text-xs text-slate-400 pt-2">
-                    
                     <span class="text-red-400 text-[10px] font-bold px-2 py-0.5 rounded bg-red-500/10">Posto Não Recomendado</span>
                 </div>
             </div>
@@ -279,20 +298,20 @@
     </section>
 
     <!-- ÁREA DE DOWNLOAD -->
-    <section id="download" class="py-24 bg-gradient-to-b from-transparent to-cardBg border-t border-white/5">
-        <div class="max-w-4xl mx-auto px-6 text-center space-y-12">
+    <section id="download" class="py-20 sm:py-24 bg-gradient-to-b from-transparent to-cardBg border-t border-white/5">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-8 sm:space-y-12">
             <div class="w-16 h-16 rounded-3xl bg-neonGreen/15 border border-neonGreen/30 mx-auto flex items-center justify-center text-neonGreen text-3xl">
                 <i class="fa-solid fa-cloud-arrow-down"></i>
             </div>
-            <h2 class="text-3xl md:text-5xl font-extrabold text-white">Baixe agora o Posto Notável</h2>
-            <p class="text-slate-400 text-base max-w-xl mx-auto leading-relaxed">
+            <h2 class="text-2xl sm:text-3xl md:text-5xl font-extrabold text-white">Baixe agora o Posto Notável</h2>
+            <p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
                 Proteja seu veículo e sua viagem. Instale o APK oficial e participe da melhor rede de alerta de postos do Brasil.
             </p>
             <div class="pt-2 pb-6 flex justify-center">
-                <div class="reflection-container">
-                    <a href="https://github.com/MateusZito2024/Posto-Not-vel/releases/download/v1.0.0/Posto.Notavel.v1.0.0.apk" data-text="Baixar APK (Versão Mais Recente)" class="reflection-btn bg-neonGreen hover:bg-neonGreen/90 text-black font-extrabold px-10 py-4 rounded-2xl text-base transition shadow-xl shadow-neonGreen/30 flex items-center space-x-3">
-                        <i class="fa-brands fa-android text-2xl"></i>
-                        <span>Baixar APK (Versão Mais Recente)</span>
+                <div class="reflection-container w-full sm:w-auto">
+                    <a href="https://github.com/MateusZito2024/Posto-Not-vel/releases/download/v1.0.0/Posto.Notavel.v1.0.0.apk" data-text="Baixar APK (Versão Mais Recente)" class="reflection-btn w-full sm:w-auto bg-neonGreen hover:bg-neonGreen/90 text-black font-extrabold px-6 sm:px-10 py-4 rounded-2xl text-xs sm:text-base transition shadow-xl shadow-neonGreen/30 flex items-center justify-center space-x-3">
+                        <i class="fa-brands fa-android text-xl sm:text-2xl"></i>
+                        <span class="truncate">Baixar APK (Versão Mais Recente)</span>
                     </a>
                 </div>
             </div>
@@ -301,8 +320,8 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="py-12 border-t border-white/5 text-center text-slate-500 text-xs">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+    <footer class="py-8 sm:py-12 border-t border-white/5 text-center text-slate-500 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div class="flex items-center space-x-2">
                 <span class="font-bold text-white">Posto Notável</span>
                 <span>• Todos os direitos reservados.</span>
@@ -319,7 +338,7 @@
         <div class="glass-card bg-slate-900 border border-white/10 w-full max-w-2xl max-h-[85vh] rounded-3xl p-6 md:p-8 overflow-y-auto transform scale-95 transition-transform duration-300 shadow-2xl">
             <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
                 <div class="flex items-center space-x-3">
-                    <div class="w-9 h-9 rounded-xl bg-neonGreen/20 flex items-center justify-center text-neonGreen font-bold">
+                    <div class="w-9 h-9 rounded-xl bg-neonGreen/20 flex items-center justify-center text-neonGreen font-bold flex-shrink-0">
                         <i class="fa-solid fa-file-contract"></i>
                     </div>
                     <h3 class="text-lg font-bold text-white">Termos de Uso</h3>
@@ -348,7 +367,7 @@
         <div class="glass-card bg-slate-900 border border-white/10 w-full max-w-2xl max-h-[85vh] rounded-3xl p-6 md:p-8 overflow-y-auto transform scale-95 transition-transform duration-300 shadow-2xl">
             <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
                 <div class="flex items-center space-x-3">
-                    <div class="w-9 h-9 rounded-xl bg-neonBlue/20 flex items-center justify-center text-neonBlue font-bold">
+                    <div class="w-9 h-9 rounded-xl bg-neonBlue/20 flex items-center justify-center text-neonBlue font-bold flex-shrink-0">
                         <i class="fa-solid fa-shield-halved"></i>
                     </div>
                     <h3 class="text-lg font-bold text-white">Política de Privacidade</h3>
@@ -372,8 +391,21 @@
         </div>
     </div>
 
-    <!-- SCRIPT DE MODAIS -->
+    <!-- SCRIPT DE MODAIS E MENU MOBILE -->
     <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const icon = document.getElementById('menuIcon');
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            }
+        }
+
         function openModal(modalId) {
             const modal = document.getElementById(modalId);
             modal.classList.remove('opacity-0', 'pointer-events-none');
