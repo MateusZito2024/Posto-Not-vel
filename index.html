@@ -74,6 +74,19 @@
             transform: translateY(-4px);
         }
 
+        /* Inputs do Formulário Glass */
+        .glass-input {
+            background: rgba(9, 13, 22, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .glass-input:focus {
+            background: rgba(15, 23, 42, 0.8);
+            border-color: #38BDF8;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+            outline: none;
+        }
+
         /* Gradientes de Texto Animados */
         .text-gradient {
             background: linear-gradient(to right, #38BDF8, #10B981);
@@ -89,7 +102,7 @@
             margin-bottom: 0.875rem;
         }
         .policy-list li::before {
-            content: '\f0da'; /* FontAwesome play icon */
+            content: '\f0da';
             font-family: 'Font Awesome 6 Free';
             font-weight: 900;
             position: absolute;
@@ -126,6 +139,7 @@
         .delay-400 { animation-delay: 400ms; }
         .delay-500 { animation-delay: 500ms; }
         .delay-600 { animation-delay: 600ms; }
+        .delay-700 { animation-delay: 700ms; }
 
         .orb-1 { animation: pulseGlow 8s infinite alternate ease-in-out; }
         .orb-2 { animation: pulseGlow 12s infinite alternate-reverse ease-in-out; }
@@ -148,14 +162,19 @@
                 <span class="text-lg sm:text-xl font-extrabold tracking-tight text-white">Posto Notável</span>
             </div>
             
-            <!-- Botão Play Store Header -->
-            <a href="https://play.google.com/store/apps/details?id=com.postonotavel.posto_notavel&pcampaignid=web_share" target="_blank" class="hidden sm:flex items-center space-x-2 bg-gradient-to-r from-neonBlue to-neonGreen hover:opacity-90 text-black font-bold px-5 py-2.5 rounded-xl transition shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_30px_rgba(16,185,129,0.5)] transform hover:scale-105">
-                <i class="fa-brands fa-google-play text-lg"></i>
-                <span class="text-sm">Baixar App</span>
-            </a>
-            <a href="https://play.google.com/store/apps/details?id=com.postonotavel.posto_notavel&pcampaignid=web_share" target="_blank" class="sm:hidden text-neonGreen text-2xl drop-shadow-[0_0_10px_rgba(16,185,129,0.5)]">
-                <i class="fa-brands fa-google-play"></i>
-            </a>
+            <div class="flex items-center space-x-6">
+                <a href="#contato" class="hidden md:flex text-sm font-medium text-slate-300 hover:text-neonBlue transition duration-300">
+                    Falar com Suporte
+                </a>
+                <!-- Botão Play Store Header -->
+                <a href="https://play.google.com/store/apps/details?id=com.postonotavel.posto_notavel&pcampaignid=web_share" target="_blank" class="hidden sm:flex items-center space-x-2 bg-gradient-to-r from-neonBlue to-neonGreen hover:opacity-90 text-black font-bold px-5 py-2.5 rounded-xl transition shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_30px_rgba(16,185,129,0.5)] transform hover:scale-105">
+                    <i class="fa-brands fa-google-play text-lg"></i>
+                    <span class="text-sm">Baixar App</span>
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.postonotavel.posto_notavel&pcampaignid=web_share" target="_blank" class="sm:hidden text-neonGreen text-2xl drop-shadow-[0_0_10px_rgba(16,185,129,0.5)]">
+                    <i class="fa-brands fa-google-play"></i>
+                </a>
+            </div>
         </div>
     </header>
 
@@ -180,7 +199,6 @@
 
             <!-- CARDS DE POLÍTICA (Cascata) -->
             <div class="space-y-6">
-                
                 <!-- 1. Visão Geral -->
                 <section class="glass-card rounded-3xl p-6 sm:p-8 animate-fade-in-up delay-100 relative overflow-hidden group">
                     <div class="absolute top-0 left-0 w-1 h-full bg-neonBlue opacity-50 group-hover:opacity-100 transition"></div>
@@ -253,7 +271,7 @@
                     </ul>
                 </section>
 
-                <!-- 5 e 6. Segurança e Exclusão (Agrupados Visualmente) -->
+                <!-- 5 e 6. Segurança e Exclusão -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fade-in-up delay-500">
                     <section class="glass-card rounded-3xl p-6 relative overflow-hidden group">
                         <div class="absolute top-0 left-0 w-1 h-full bg-neonBlue opacity-50 group-hover:opacity-100 transition"></div>
@@ -273,8 +291,53 @@
                 </div>
             </div>
 
+            <!-- FORMULÁRIO DE CONTATO ELEGANTE -->
+            <section id="contato" class="mt-16 glass-card rounded-3xl p-8 sm:p-10 animate-fade-in-up delay-600 relative overflow-hidden group">
+                <!-- Borda Superior Iluminada -->
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neonBlue to-neonGreen opacity-40 group-hover:opacity-100 transition duration-500"></div>
+                <div class="absolute -top-24 -right-24 w-48 h-48 bg-neonBlue/10 rounded-full blur-[50px] pointer-events-none"></div>
+
+                <div class="text-center mb-8 relative z-10">
+                    <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white text-xl mx-auto mb-4 shadow-lg">
+                        <i class="fa-regular fa-envelope"></i>
+                    </div>
+                    <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-2">Ficou com alguma dúvida?</h2>
+                    <p class="text-slate-400 text-sm">Fale diretamente com nossa equipe de suporte e moderação.</p>
+                </div>
+
+                <form action="https://formspree.io/f/xpwrwpzo" method="POST" class="space-y-5 relative z-10">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <!-- Nome -->
+                        <div class="space-y-1.5">
+                            <label for="nome" class="text-[11px] font-bold text-slate-400 uppercase tracking-widest ml-1">Seu Nome</label>
+                            <input type="text" id="nome" name="nome" required placeholder="Como podemos te chamar?" 
+                                   class="glass-input w-full rounded-xl px-4 py-3.5 text-sm text-white placeholder-slate-500">
+                        </div>
+                        <!-- E-mail -->
+                        <div class="space-y-1.5">
+                            <label for="email" class="text-[11px] font-bold text-slate-400 uppercase tracking-widest ml-1">E-mail</label>
+                            <input type="email" id="email" name="email" required placeholder="seu@email.com" 
+                                   class="glass-input w-full rounded-xl px-4 py-3.5 text-sm text-white placeholder-slate-500">
+                        </div>
+                    </div>
+                    
+                    <!-- Mensagem -->
+                    <div class="space-y-1.5">
+                        <label for="mensagem" class="text-[11px] font-bold text-slate-400 uppercase tracking-widest ml-1">Sua Mensagem</label>
+                        <textarea id="mensagem" name="mensagem" required rows="4" placeholder="Escreva sua dúvida, sugestão ou relato aqui..." 
+                                  class="glass-input w-full rounded-xl px-4 py-3.5 text-sm text-white placeholder-slate-500 resize-none"></textarea>
+                    </div>
+
+                    <!-- Botão Submit -->
+                    <button type="submit" class="w-full bg-gradient-to-r from-slate-800 to-slate-900 hover:from-neonBlue hover:to-neonGreen text-white hover:text-black border border-slate-700 hover:border-transparent font-extrabold px-6 py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-[0_0_25px_rgba(56,189,248,0.4)] flex items-center justify-center space-x-3 group/btn">
+                        <span>Enviar Mensagem</span>
+                        <i class="fa-solid fa-paper-plane group-hover/btn:-translate-y-1 group-hover/btn:translate-x-1 transition-transform"></i>
+                    </button>
+                </form>
+            </section>
+
             <!-- Call to Action Final (Download) -->
-            <div class="mt-20 text-center animate-fade-in-up delay-600 floating-btn">
+            <div class="mt-20 text-center animate-fade-in-up delay-700 floating-btn">
                 <a href="https://play.google.com/store/apps/details?id=com.postonotavel.posto_notavel&pcampaignid=web_share" target="_blank" class="inline-flex flex-col sm:flex-row items-center justify-center p-1 rounded-3xl bg-gradient-to-r from-neonBlue via-neonGreen to-neonBlue bg-[length:200%_auto] hover:bg-right transition-all duration-500 shadow-[0_0_40px_rgba(16,185,129,0.3)] hover:shadow-[0_0_60px_rgba(16,185,129,0.5)]">
                     <div class="bg-darkBg rounded-[1.35rem] px-8 py-5 flex items-center space-x-4 h-full w-full">
                         <i class="fa-brands fa-google-play text-4xl text-transparent bg-clip-text bg-gradient-to-br from-neonBlue to-neonGreen"></i>
