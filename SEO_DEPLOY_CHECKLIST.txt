@@ -1,0 +1,24 @@
+POSTO NOTÁVEL — CHECKLIST DE PUBLICAÇÃO SEO
+
+Arquivos para publicar na raiz do domínio https://postonotavel.com.br/:
+1. posto_notavel_SEO_aprimorado.html como index.html (somente se esta for realmente a página raiz)
+2. robots.txt
+3. sitemap.xml
+
+Depois de publicar:
+- Google Search Console: verificar o domínio, inspecionar https://postonotavel.com.br/ e enviar sitemap.xml.
+- Bing Webmaster Tools: importar a propriedade do Search Console ou verificar o domínio e enviar sitemap.xml.
+- IndexNow: gerar uma chave no Bing/IndexNow, hospedar o arquivo da chave na raiz e notificar a URL quando ela mudar. Não foi criada uma chave falsa neste pacote.
+- Testar o JSON-LD no Google Rich Results Test e Schema Markup Validator.
+- Testar título/descrição e indexabilidade com a inspeção de URL do Google e Site Scan do Bing.
+
+SEO INTERNACIONAL
+Não criar hreflang para idiomas que não tenham páginas realmente traduzidas. Quando houver versões reais, usar URLs próprias e recíprocas, por exemplo:
+https://postonotavel.com.br/en/   -> hreflang=en
+https://postonotavel.com.br/es/   -> hreflang=es
+https://postonotavel.com.br/fr/   -> hreflang=fr
+https://postonotavel.com.br/de/   -> hreflang=de
+E manter pt-BR + x-default. Cada versão deve apontar para si mesma e para todas as demais.
+
+IMPORTANTE
+Nenhuma meta tag garante primeiro lugar ou indexação imediata. O pacote maximiza a base técnica on-page sem usar keyword stuffing, cloaking ou hreflang falso. Autoridade, links legítimos, conteúdo útil, desempenho, histórico do domínio e qualidade das páginas também influenciam visibilidade.
